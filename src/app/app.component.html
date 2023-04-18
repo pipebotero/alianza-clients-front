@@ -1,0 +1,27 @@
+<mat-drawer-container class="mat-drawer-container" autosize>
+  <mat-drawer #drawer class="mat-drawer" mode="side">
+    <ac-side-bar [menuItems]="menuItems">
+      <div class="container-logout__button">
+        <button mat-button color="primary" class="logout__btn" (click)="logout()">
+          Logout
+          <mat-icon>logout</mat-icon>
+        </button>
+      </div>
+    </ac-side-bar>
+  </mat-drawer>
+  <ac-header>
+    <button
+      mat-icon-button
+      color="primary"
+      aria-label="Menu icon"
+      (click)="drawer.toggle()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <a routerLink="/clients">
+      <img src="assets/icon/alianza_logo.png" alt="" height="40">
+    </a>
+  </ac-header>
+
+  <router-outlet></router-outlet>
+</mat-drawer-container>

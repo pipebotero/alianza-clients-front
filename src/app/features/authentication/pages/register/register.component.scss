@@ -1,0 +1,61 @@
+@import '~@angular/material/theming';
+@import "src/app/styles/settings/colors";
+@import "src/app/styles/settings/mixins";
+.wrap-container {
+    width: 100%;
+    height: calc(100vh - 64px);
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    .logo-container {
+        img {
+            width: 200px;
+            height: auto;
+        }
+    }
+    .authenticate-container {
+        width: calc(100% - 40px);
+        max-width: 320px;
+        padding: 16px;
+        border-radius: 10px;
+        display: flex;
+        border: 1px solid gray;
+        justify-content: center;
+        gap: 10px;
+        a {
+            text-decoration: none;
+            color: mat-color($primary);
+        }
+    }
+}
+.container__form {
+    @include container-vertical-form;
+    width: 320px;
+    form .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        // .fields-container {
+        //     display: flex;
+        // }
+        .next__btn {
+            margin-top: 20px;
+        }
+    }
+}
+
+mat-divider {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 360px) {
+    .container__form {
+        width: calc(100% - 40px);
+    }
+    .authenticate-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -1,0 +1,9 @@
+@import "src/app/styles/settings/mixins";
+.container__form {
+    @include container-vertical-form;
+    margin-bottom: 20px;
+    .container-submit__btn {
+        display: flex;
+        justify-content: end;
+    }
+}

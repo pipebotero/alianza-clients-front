@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <img src="assets/icon/alianza_logo.png" alt="" height="40"/>
+</mat-toolbar>
+<mat-selection-list #item [multiple]="false">
+  <mat-list-option *ngFor="let item of menuItems" [routerLink]="item.route">
+    {{ item.label }}
+  </mat-list-option>
+</mat-selection-list>
+<ng-content>
+</ng-content>

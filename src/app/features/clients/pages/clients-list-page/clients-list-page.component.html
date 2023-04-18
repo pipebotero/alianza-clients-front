@@ -1,0 +1,55 @@
+<div *ngIf="clients?.length > 0" class="wrap-container">
+  <div class="container__buttons">
+    <button mat-raised-button color="primary" (click)="openCreateDialog()">
+      <mat-icon>add</mat-icon>
+      New
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="exportCSV()"
+      [disabled]="exportCsvReqStatus.isLoading"
+    >
+      <mat-icon>call_made</mat-icon>
+      Export
+      <mat-icon *ngIf="exportCsvReqStatus.isLoading"
+        ><mat-spinner color="accent" diameter="20"> </mat-spinner
+      ></mat-icon>
+    </button>
+  </div>
+  <div class="search-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Search</mat-label>
+      <input
+        matInput
+        placeholder="Enter shared key"
+        [(ngModel)]="basicSearchInput"
+      />
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      class="search__btn"
+      (click)="basicSearchFn()"
+    >
+      <mat-icon>search</mat-icon>
+      Search
+    </button>
+    <button mat-raised-button class="search__btn" (click)="changeSearchType()">
+      Advanced Search
+    </button>
+  </div>
+  <ac-advanced-search
+    *ngIf="advancedSearch"
+    (search)="advancedSearchFn($event)"
+  ></ac-advanced-search>
+  <ac-clients-table
+    [clients]="clients"
+    [pageIndex]="pageIndex"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    [totalElements]="totalElements"
+    (paginate)="paginateClientsTable($event)"
+  >
+  </ac-clients-table>
+</div>

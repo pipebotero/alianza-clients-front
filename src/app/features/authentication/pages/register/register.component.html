@@ -1,0 +1,135 @@
+<div class="wrap-container">
+  <div class="logo-container">
+    <img src="assets/icon/alianza_logo.png" alt="" />
+  </div>
+  <div>
+    <h1>Welcome to Alianza!</h1>
+  </div>
+  <div class="container__form">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group" formGroupName="emailGroup">
+        <h4>Your email</h4>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input
+            #emailInput
+            matInput
+            placeholder="Enter your email"
+            formControlName="email"
+          />
+          <mat-error>
+            <ac-form-error-msg
+              [field]="registerForm.get('emailGroup').get('email')"
+              [error]="getErrorType('emailGroup', 'email')"
+              [message]="getErrorMessage('emailGroup', 'email')"
+            ></ac-form-error-msg>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div
+        *ngIf="formStep !== 'email'"
+        class="form-group"
+        formGroupName="nameGroup"
+      >
+        <mat-divider></mat-divider>
+        <h4>Your name</h4>
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            placeholder="Enter your first name"
+            formControlName="firstName"
+          />
+          <mat-error>
+            <ac-form-error-msg
+              [field]="registerForm.get('nameGroup').get('firstName')"
+              [error]="getErrorType('nameGroup', 'firstName')"
+              [message]="getErrorMessage('nameGroup', 'firstName')"
+            ></ac-form-error-msg>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input
+            matInput
+            placeholder="Enter your last name"
+            formControlName="lastName"
+          />
+          <mat-error>
+            <ac-form-error-msg
+              [field]="registerForm.get('nameGroup').get('lastName')"
+              [error]="getErrorType('nameGroup', 'lastName')"
+              [message]="getErrorMessage('nameGroup', 'lastName')"
+            ></ac-form-error-msg>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div
+        *ngIf="formStep === 'password'"
+        class="form-group"
+        formGroupName="passwordGroup"
+      >
+        <mat-divider></mat-divider>
+        <h4>Your password</h4>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            placeholder="Create a password"
+            formControlName="password"
+          />
+          <mat-error>
+            <ac-form-error-msg
+              [field]="registerForm.get('passwordGroup').get('password')"
+              [error]="getErrorType('passwordGroup', 'password')"
+              [message]="getErrorMessage('passwordGroup', 'password')"
+            ></ac-form-error-msg>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Password confirm</mat-label>
+          <input
+            matInput
+            type="password"
+            placeholder="Confirm your password"
+            formControlName="passwordConfirm"
+          />
+          <mat-error>
+            <ac-form-error-msg
+              [field]="registerForm.get('passwordGroup').get('passwordConfirm')"
+              [error]="getErrorType('passwordGroup', 'passwordConfirm')"
+              [message]="getErrorMessage('passwordGroup', 'passwordConfirm')"
+            ></ac-form-error-msg>
+          </mat-error>
+        </mat-form-field>
+        <p>
+          Your password must have at least one capital letter, one lowercase
+          letter and one number.
+        </p>
+      </div>
+      <button
+        mat-raised-button
+        color="primary"
+        class="next__btn"
+        [disabled]="disableSubmitBySteps()"
+      >
+        {{ formStep !== 'password' ? 'Continue' : 'Register'}}
+      </button>
+      <!-- <ng-template #submitAll>
+        <button
+          mat-raised-button
+          color="primary"
+          class="next__btn"
+          [disabled]="registerForm.invalid"
+        >
+          Register
+        </button>
+      </ng-template> -->
+    </form>
+  </div>
+  <div class="authenticate-container">
+    Already have an account?
+    <a routerLink="/auth/login">Sign in</a>
+  </div>
+</div>

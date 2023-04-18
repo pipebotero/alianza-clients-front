@@ -1,0 +1,23 @@
+.wrap-container {
+    // width: 100%;
+    padding: 20px 16px;
+    .container__buttons {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    .search-container {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        .search__btn {
+            margin-bottom: 1.34375em;
+        }
+    }
+    ac-advanced-search {
+        margin-bottom: 20px;
+    }
+    // ac-clients-table {
+    //     width: 100%;
+    // }
+}

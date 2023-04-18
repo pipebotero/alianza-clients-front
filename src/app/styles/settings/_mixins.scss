@@ -1,0 +1,15 @@
+@mixin container-form {
+	background-color: #a9c9d8;
+    padding: 16px;
+    border-radius: 10px;
+    max-width: 400px;
+}
+
+@mixin container-vertical-form {
+	@include container-form;
+	form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+  }

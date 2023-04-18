@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Create new client</h1>
+<div mat-dialog-content>
+  <!-- <p>What's your favorite animal?</p> -->
+  <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="custom-form-field">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Write your name" formControlName="name" />
+    </mat-form-field>
+    <mat-form-field class="custom-form-field">
+      <mat-label>Phone</mat-label>
+      <input matInput placeholder="Write your phone" formControlName="phone" />
+    </mat-form-field>
+    <mat-form-field class="custom-form-field">
+      <mat-label>E-mail</mat-label>
+      <input matInput placeholder="Write your email" formControlName="email" />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" cdkFocusInitial>
+    Ok
+  </button>
+</div>
